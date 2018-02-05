@@ -1,0 +1,8 @@
+Description:
+    Generate a skeleton for oneshot rake task
+
+Example:
+    rails generate oneshot update_some_data
+
+    This will create:
+        lib/tasks/oneshot/YYYYMMDD_update_some_data.rake
