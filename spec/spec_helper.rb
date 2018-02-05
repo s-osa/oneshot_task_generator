@@ -1,5 +1,5 @@
-require "bundler/setup"
-require "oneshot_generator"
+require 'bundler/setup'
+require 'oneshot_task_generator'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
