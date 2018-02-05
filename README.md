@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/s-osa/oneshot_task_generator.svg?branch=master)](https://travis-ci.org/s-osa/oneshot_task_generator)
+
 # OneshotTaskGenerator
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/oneshot_generator`. To experiment with that code, run `bin/console` for an interactive prompt.
