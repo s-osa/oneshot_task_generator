@@ -1,4 +1,3 @@
-require 'rails'
 require 'oneshot_generator/version'
 
 class OneshotGenerator < Rails::Generators::NamedBase

@@ -1,15 +1,15 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'oneshot_generator/version'
+require 'oneshot_task_generator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'oneshot_generator'
-  spec.version       = OneshotGenerator::VERSION
+  spec.name          = 'oneshot_task_generator'
+  spec.version       = OneshotTaskGenerator::VERSION
   spec.authors       = ['OSA Shunsuke']
   spec.email         = ['hhelibebcnofnenamg@gmail.com']
 
   spec.summary       = %q{Generator for oneshot rake task}
-  spec.homepage      = 'https://github.com/s-osa/oneshot_generator'
+  spec.homepage      = 'https://github.com/s-osa/oneshot_task_generator'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rails'
+  spec.add_runtime_dependency 'rails', '>= 3.0.0'
 
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 10.0'
