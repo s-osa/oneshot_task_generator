@@ -1,4 +1,4 @@
-# OneshotGenerator
+# OneshotTaskGenerator
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/oneshot_generator`. To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -15,10 +15,6 @@ gem 'oneshot_generator'
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install oneshot_generator
 
 ## Usage
 
