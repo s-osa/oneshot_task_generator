@@ -7,11 +7,9 @@ RSpec.describe OneshotGenerator, type: :generator do
 
   let(:args) { ['FooBar'] }
 
-  before do
+  around do |example|
     prepare_destination
-  end
-
-  after do
+    example.run
     FileUtils.rm_rf(destination_path)
   end
 
