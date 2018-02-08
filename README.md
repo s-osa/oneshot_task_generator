@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/s-osa/oneshot_task_generator.svg?branch=master)](https://travis-ci.org/s-osa/oneshot_task_generator)
+[![Gem Version](https://badge.fury.io/rb/oneshot_task_generator.svg)](https://badge.fury.io/rb/oneshot_task_generator)
 
 # OneshotTaskGenerator
 
