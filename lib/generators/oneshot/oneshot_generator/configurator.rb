@@ -3,7 +3,7 @@ require 'generators/oneshot/oneshot_generator/configuration'
 class OneshotGenerator < Rails::Generators::NamedBase
   module Configurator
     def configure
-      yield(configration)
+      yield(configuration)
     end
 
     def configuration
