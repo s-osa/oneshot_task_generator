@@ -3,5 +3,10 @@
 namespace :oneshot do
   desc ''
   task <%= task_name %>: :environment do
+    <%- if configuration.body -%>
+    <%- configuration.body.each_line.map(&:chomp).each do |line| -%>
+    <%= line %>
+    <%- end -%>
+    <%- end -%>
   end
 end

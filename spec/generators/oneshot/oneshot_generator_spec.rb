@@ -37,4 +37,31 @@ RSpec.describe OneshotGenerator, type: :generator do
       expect(file_name).to match(/\d{8}_foo_bar.rake/)
     end
   end
+
+  describe 'configuration' do
+    describe 'body' do
+      around(:each) do |example|
+        described_class.config.body = <<-BODY
+ActiveRecord::Base.transaction do
+  # Write transactional code here
+end
+        BODY
+        example.run
+        described_class.config = nil
+      end
+
+      before do
+        run_generator(args)
+      end
+
+      it 'inserts body' do
+        file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
+        generated_text = ''
+        File.open(file_name) { |f| generated_text = f.read }
+        expect(generated_text).to match(/^ {4}ActiveRecord::Base.transaction do$/)
+        expect(generated_text).to match(/^ {4}  # Write transactional code here$/)
+        expect(generated_text).to match(/^ {4}end$/)
+      end
+    end
+  end
 end
