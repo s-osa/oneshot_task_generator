@@ -6,7 +6,7 @@
 Simple rake task generator for oneshot tasks.
 
 ```sh
-$ bin/rake generate oneshot FooBar
+$ bin/rails generate oneshot FooBar
       create  lib/tasks/oneshot/20180205_foo_bar.rake
 ```
 
