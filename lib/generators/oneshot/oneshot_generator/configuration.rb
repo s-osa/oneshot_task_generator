@@ -1,10 +1,6 @@
 class OneshotGenerator < Rails::Generators::NamedBase
   class Configuration
-    attr_accessor :body
-
-    def initialize
-      @body = nil
-    end
+    attr_accessor :body, :arguments
   end
 end
 

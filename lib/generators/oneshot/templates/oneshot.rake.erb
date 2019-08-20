@@ -4,7 +4,7 @@
 <%= "# For copy and paste: `bin/rake oneshot:#{task_name}`" %>
 namespace :oneshot do
   desc ''
-  task <%= task_name %>: :environment do
+  task <%= task_name %>: :environment do<%= configuration.arguments && " |#{configuration.arguments.join(", ")}|" %>
     <%- if configuration.body -%>
     <%- configuration.body.each_line.map(&:chomp).each do |line| -%>
     <%= line %>

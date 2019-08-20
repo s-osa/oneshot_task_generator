@@ -36,6 +36,12 @@ RSpec.describe OneshotGenerator, type: :generator do
       file_name = File.basename(Dir.glob("tmp/lib/tasks/oneshot/*").first)
       expect(file_name).to match(/\d{8}_foo_bar.rake/)
     end
+
+    it 'is valid as ruby' do
+      file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
+      generated_text = File.read(file_name)
+      expect(generated_text).to be_valid_as_ruby
+    end
   end
 
   describe 'configuration' do
@@ -56,11 +62,40 @@ end
 
       it 'inserts body' do
         file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
-        generated_text = ''
-        File.open(file_name) { |f| generated_text = f.read }
+        generated_text = File.read(file_name)
         expect(generated_text).to match(/^ {4}ActiveRecord::Base.transaction do$/)
         expect(generated_text).to match(/^ {4}  # Write transactional code here$/)
         expect(generated_text).to match(/^ {4}end$/)
+      end
+
+      it 'is valid as ruby' do
+        file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
+        generated_text = File.read(file_name)
+        expect(generated_text).to be_valid_as_ruby
+      end
+    end
+
+    describe 'arguments' do
+      around(:each) do |example|
+        described_class.config.arguments = ['task', 'args']
+        example.run
+        described_class.config = nil
+      end
+
+      before do
+        run_generator(args)
+      end
+
+      it 'inserts the arguments' do
+        file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
+        generated_text = File.read(file_name)
+        expect(generated_text).to match(/^  task foo_bar_\d{8}: :environment do \|task, args\|$/)
+      end
+
+      it 'is valid as ruby' do
+        file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
+        generated_text = File.read(file_name)
+        expect(generated_text).to be_valid_as_ruby
       end
     end
   end
