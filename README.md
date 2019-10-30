@@ -41,7 +41,7 @@ $ bundle
 ### Task Body
 
 ```ruby
-# config/initializers/ohesnot_task_generator.rb
+# config/initializers/oneshot_task_generator.rb
 OneshotGenerator.configure do |config|
   config.body = <<-BODY
 ActiveRecord::Base.transaction do
@@ -67,7 +67,7 @@ end
 ### Arguments
 
 ```ruby
-# config/initializers/ohesnot_task_generator.rb
+# config/initializers/oneshot_task_generator.rb
 OneshotGenerator.configure do |config|
   config.arguments = ['task', 'args']
 end
