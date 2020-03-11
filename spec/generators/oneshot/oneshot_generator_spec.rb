@@ -50,6 +50,8 @@ RSpec.describe OneshotGenerator, type: :generator do
         described_class.config.body = <<-BODY
 ActiveRecord::Base.transaction do
   # Write transactional code here
+
+  # blah
 end
         BODY
         example.run
@@ -63,9 +65,15 @@ end
       it 'inserts body' do
         file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
         generated_text = File.read(file_name)
-        expect(generated_text).to match(/^ {4}ActiveRecord::Base.transaction do$/)
-        expect(generated_text).to match(/^ {4}  # Write transactional code here$/)
-        expect(generated_text).to match(/^ {4}end$/)
+        # expected_body has 4 spaces indentation
+        expected_body = <<-BODY
+    ActiveRecord::Base.transaction do
+      # Write transactional code here
+
+      # blah
+    end
+        BODY
+        expect(generated_text).to include(expected_body)
       end
 
       it 'is valid as ruby' do

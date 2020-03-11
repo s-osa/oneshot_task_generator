@@ -6,9 +6,7 @@ namespace :oneshot do
   desc ''
   task <%= task_name %>: :environment do<%= configuration.arguments && " |#{configuration.arguments.join(", ")}|" %>
     <%- if configuration.body -%>
-    <%- configuration.body.each_line.map(&:chomp).each do |line| -%>
-    <%= line %>
-    <%- end -%>
+<%= configuration.body.indent(4) %>
     <%- end -%>
   end
 end
