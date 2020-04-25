@@ -83,6 +83,15 @@ namespace :oneshot do
 end
 ```
 
+### Directory
+
+```ruby
+# config/initializers/oneshot_task_generator.rb
+OneshotGenerator.configure do |config|
+  config.directory = 'your/favorite/directory' # Default: lib/tasks/oneshot
+end
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/s-osa/oneshot_task_generator.
