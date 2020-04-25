@@ -106,5 +106,23 @@ end
         expect(generated_text).to be_valid_as_ruby
       end
     end
+
+    describe 'directory' do
+      let(:directory) { 'my/favorite/directory' }
+
+      around(:each) do |example|
+        described_class.config.directory = directory
+        example.run
+        described_class.config = nil
+      end
+
+      before do
+        run_generator(args)
+      end
+
+      it 'generates a file in specified directory' do
+        expect(Dir.glob("tmp/#{directory}/*").size).to eq(1)
+      end
+    end
   end
 end

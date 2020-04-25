@@ -15,6 +15,7 @@ class OneshotGenerator < Rails::Generators::NamedBase
   end
 
   def create_file_with_template
-    template 'oneshot.rake.erb', "lib/tasks/oneshot/#{timestamp}_#{name.underscore}.rake"
+    path = File.join(@configuration.directory, "#{timestamp}_#{name.underscore}.rake")
+    template 'oneshot.rake.erb', path
   end
 end
