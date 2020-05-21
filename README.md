@@ -27,7 +27,7 @@ end
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'oneshot_task_generator'
+gem 'oneshot_task_generator', group: :development
 ```
 
 And then execute:
