@@ -97,7 +97,7 @@ end
       it 'inserts the arguments' do
         file_name = Dir.glob("tmp/lib/tasks/oneshot/*").first
         generated_text = File.read(file_name)
-        expect(generated_text).to match(/^  task foo_bar_\d{8}: :environment do \|task, args\|$/)
+        expect(generated_text).to match(/^  task '\d{8}_foo_bar': :environment do \|task, args\|$/)
       end
 
       it 'is valid as ruby' do
