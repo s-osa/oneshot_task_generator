@@ -10,12 +10,12 @@ class OneshotGenerator < Rails::Generators::NamedBase
   def setup
     @current   = Time.current
     @timestamp = @current.strftime('%Y%m%d')
-    @task_name = "#{name.underscore}_#{timestamp}"
+    @task_name = "#{timestamp}_#{name.underscore}"
     @configuration = self.class.configuration
   end
 
   def create_file_with_template
-    path = File.join(@configuration.directory, "#{timestamp}_#{name.underscore}.rake")
+    path = File.join(@configuration.directory, "#{task_name}.rake")
     template 'oneshot.rake.erb', path
   end
 end
